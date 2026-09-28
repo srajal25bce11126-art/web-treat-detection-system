@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Threat Analysis</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-wrapper">
+    <!-- Ambient glowing backdrop effect -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <!-- Main Glassmorphism Threat Card -->
+    <main class="threat-card" id="threat-card" role="dialog" aria-labelledby="threat-headline">
+      
+      <!-- Top Header Row -->
+      <header class="card-header">
+        <div class="header-left">
+          <span class="header-title">AI threat analysis</span>
+        </div>
+        <div class="header-right">
+          <span class="badge badge-caution" id="threat-badge">Caution</span>
+          <button class="icon-btn" id="btn-fullscreen" title="Show blurred overlay on page" aria-label="Show on page">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Middle Threat Summary: Risk Gauge + Headline -->
+      <section class="threat-summary">
+        <!-- Circular Risk Gauge -->
+        <div class="gauge-container" id="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 100 100" width="80" height="80">
+            <!-- Background circle track -->
+            <circle class="gauge-track" cx="50" cy="50" r="40" />
+            <!-- Progress circle fill -->
+            <circle class="gauge-fill" id="gauge-progress" cx="50" cy="50" r="40" />
+          </svg>
+          <div class="gauge-text-wrap">
+            <span class="gauge-percentage" id="gauge-percentage">73%</span>
+            <span class="gauge-label">risk</span>
+          </div>
+        </div>
+
+        <!-- Headline & Description -->
+        <div class="threat-details">
+          <h1 class="threat-headline" id="threat-headline">Proceed with caution</h1>
+          <p class="threat-description" id="threat-description">
+            The model sees patterns that resemble phishing domains.
+          </p>
+        </div>
+      </section>
+
+      <!-- Target URL Box -->
+      <section class="url-box-container">
+        <div class="url-box" id="url-box" title="Click to copy URL">
+          <span class="url-text" id="target-url">https://snm.vitbhopal.ac.in/</span>
+          <button class="copy-btn" id="btn-copy-url" title="Copy URL" aria-label="Copy URL">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Top Signals Section -->
+      <section class="signals-section">
+        <h2 class="signals-title">Top signals</h2>
+        
+        <div class="signals-list" id="signals-list">
+          <!-- Signal 1: Subdomain depth -->
+          <div class="signal-item" id="signal-subdomain">
+            <div class="signal-header">
+              <span class="signal-label">Subdomain depth</span>
+              <span class="signal-value" id="subdomain-value">High</span>
+            </div>
+            <div class="signal-track">
+              <div class="signal-bar bar-amber" id="subdomain-bar" style="width: 82%;"></div>
+            </div>
+          </div>
+
+          <!-- Signal 2: URL length -->
+          <div class="signal-item" id="signal-urllength">
+            <div class="signal-header">
+              <span class="signal-label">URL length</span>
+              <span class="signal-value" id="urllength-value">Medium</span>
+            </div>
+            <div class="signal-track">
+              <div class="signal-bar bar-amber" id="urllength-bar" style="width: 56%;"></div>
+            </div>
+          </div>
+
+          <!-- Signal 3: HTTPS certificate -->
+          <div class="signal-item" id="signal-https">
+            <div class="signal-header">
+              <span class="signal-label">HTTPS certificate</span>
+              <span class="signal-value" id="https-value">Valid</span>
+            </div>
+            <div class="signal-track">
+              <div class="signal-bar bar-green" id="https-bar" style="width: 25%;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Buttons -->
+      <footer class="card-actions">
+        <button class="btn btn-primary" id="btn-take-back">Take me back</button>
+        <button class="btn btn-secondary" id="btn-proceed">Proceed anyway</button>
+      </footer>
+
+      <!-- Bottom Safe Report Link -->
+      <div class="report-safe-container">
+        <span class="report-text">Think this is safe?</span>
+        <button class="report-link" id="btn-report-safe">Report as safe</button>
+      </div>
+
+    </main>
+
+    <!-- Toast Feedback Notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

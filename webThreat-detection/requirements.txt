@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+scikit-learn
+pandas
+numpy
+python-whois
+requests
+joblib
+pytest
+httpx
+kagglehub
+kaggle

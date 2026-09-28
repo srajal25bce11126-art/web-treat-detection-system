@@ -1,0 +1,10 @@
+/* content.css - In-page Blur Backdrop & Overlay Styles */
+
+#phishing-shield-overlay-host {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}
